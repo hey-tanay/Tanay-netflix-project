@@ -1,0 +1,579 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Narnia | Enter the Magic</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --gold: #e8c77b;
+    --white: #ffffff;
+    --muted: #c4c6d0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #050711;
+    color: var(--white);
+    overflow-x: hidden;
+}
+
+/* HERO BACKGROUND */
+.hero {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(90deg,
+            rgba(3, 5, 15, 0.98) 0%,
+            rgba(4, 8, 20, 0.83) 35%,
+            rgba(4, 8, 20, 0.28) 70%,
+            rgba(4, 8, 20, 0.15) 100%),
+        linear-gradient(0deg, #050711 0%, transparent 45%),
+        url("https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=2200&q=90")
+        center/cover no-repeat;
+}
+
+/* NAVIGATION */
+nav {
+    height: 95px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 5;
+    background: linear-gradient(to bottom, rgba(0,0,0,.55), transparent);
+}
+
+.logo {
+    font-family: 'Cinzel', serif;
+    font-size: 27px;
+    font-weight: 800;
+    letter-spacing: 5px;
+    color: var(--gold);
+    text-shadow: 0 0 20px rgba(232,199,123,.35);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: #eee;
+    font-size: 13px;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.search {
+    font-size: 23px;
+    cursor: pointer;
+}
+
+.profile {
+    width: 36px;
+    height: 36px;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #e9cc83, #6b4726);
+    display: grid;
+    place-items: center;
+    color: #111;
+    font-weight: 700;
+}
+
+/* HERO CONTENT */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 115px 7% 100px;
+    max-width: 850px;
+    animation: reveal 1.2s ease-out;
+}
+
+.eyebrow {
+    color: var(--gold);
+    font-size: 12px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+
+h1 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(43px, 6.5vw, 88px);
+    font-weight: 500;
+    line-height: 1.12;
+    letter-spacing: 1px;
+    text-shadow: 0 5px 35px rgba(0,0,0,.8);
+}
+
+h1 span {
+    display: block;
+    color: var(--gold);
+}
+
+.ornament {
+    width: 220px;
+    height: 1px;
+    margin: 27px 0;
+    background: linear-gradient(90deg, var(--gold), transparent);
+}
+
+.movie-meta {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    flex-wrap: wrap;
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 22px;
+}
+
+.rating {
+    border: 1px solid #9da0a8;
+    padding: 2px 7px;
+    font-size: 11px;
+    color: white;
+}
+
+.tag {
+    color: var(--gold);
+}
+
+.description {
+    max-width: 530px;
+    color: #d5d8e2;
+    font-size: 14px;
+    line-height: 1.9;
+    font-weight: 300;
+}
+
+/* BUTTONS */
+.buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 14px 27px;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: .3s;
+}
+
+.btn-primary {
+    background: var(--gold);
+    color: #101018;
+    box-shadow: 0 0 25px rgba(232,199,123,.15);
+}
+
+.btn-primary:hover {
+    background: #fff0bf;
+    transform: translateY(-3px);
+    box-shadow: 0 0 35px rgba(232,199,123,.35);
+}
+
+.btn-secondary {
+    background: rgba(255,255,255,.12);
+    color: white;
+    border: 1px solid rgba(255,255,255,.2);
+    backdrop-filter: blur(8px);
+}
+
+.btn-secondary:hover {
+    background: rgba(255,255,255,.23);
+    transform: translateY(-3px);
+}
+
+/* MAGICAL PARTICLES */
+.particles {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #ffe9a8;
+    box-shadow: 0 0 12px 3px rgba(255,220,140,.35);
+    animation: float linear infinite;
+    opacity: 0;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) translateX(0);
+        opacity: 0;
+    }
+    15% { opacity: .8; }
+    85% { opacity: .6; }
+    100% {
+        transform: translateY(-100px) translateX(70px);
+        opacity: 0;
+    }
+}
+
+@keyframes reveal {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* MOVIE DETAILS STRIP */
+.details {
+    padding: 28px 7% 35px;
+    background: #050711;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.detail-label {
+    color: #8c91a4;
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.detail-value {
+    color: #e9eaf0;
+    font-size: 13px;
+}
+
+.gold-text {
+    color: var(--gold);
+}
+
+.bottom-note {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    color: var(--gold);
+    letter-spacing: 3px;
+    text-align: center;
+    padding: 30px 15px 45px;
+    background: #050711;
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    background: rgba(0,0,0,.85);
+    backdrop-filter: blur(10px);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-box {
+    position: relative;
+    max-width: 520px;
+    width: 100%;
+    padding: 40px;
+    border: 1px solid rgba(232,199,123,.45);
+    border-radius: 8px;
+    background: linear-gradient(145deg, #151b2c, #080a13);
+    box-shadow: 0 0 80px rgba(232,199,123,.1);
+    animation: reveal .35s ease-out;
+}
+
+.modal-box h2 {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    font-size: 27px;
+    margin-bottom: 18px;
+}
+
+.modal-box p {
+    color: #c8ccda;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.close {
+    position: absolute;
+    right: 18px;
+    top: 12px;
+    font-size: 27px;
+    cursor: pointer;
+    color: white;
+}
+
+/* RESPONSIVE */
+@media (max-width: 700px) {
+    nav {
+        height: 75px;
+        padding: 0 5%;
+    }
+
+    .logo {
+        font-size: 22px;
+        letter-spacing: 3px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero {
+        min-height: 100vh;
+        background-position: 60% center;
+    }
+
+    .hero-content {
+        padding: 135px 6% 85px;
+    }
+
+    h1 {
+        font-size: clamp(40px, 10vw, 65px);
+    }
+
+    .description {
+        font-size: 13px;
+    }
+
+    .buttons {
+        gap: 10px;
+    }
+
+    .btn {
+        padding: 12px 16px;
+        font-size: 12px;
+    }
+
+    .details {
+        padding: 30px 6%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .modal-box {
+        padding: 30px 23px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+
+    <div class="particles" id="particles"></div>
+
+    <nav>
+        <div class="logo">NARNIA</div>
+
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#details">Fantasy</a>
+            <a href="#details">Movies</a>
+            <a href="#details">My List</a>
+        </div>
+
+        <div class="nav-right">
+            <span class="search" title="Search">⌕</span>
+            <div class="profile">N</div>
+        </div>
+    </nav>
+
+    <div class="hero-content">
+        <p class="eyebrow">✦ A World Beyond Your Imagination ✦</p>
+
+        <h1>
+            THE CHRONICLES
+            <span>OF NARNIA</span>
+        </h1>
+
+        <div class="ornament"></div>
+
+        <div class="movie-meta">
+            <span class="tag">FANTASY CLASSIC</span>
+            <span>•</span>
+            <span>2005</span>
+            <span>•</span>
+            <span class="rating">PG</span>
+            <span>•</span>
+            <span>2h 23m</span>
+            <span>•</span>
+            <span>Adventure</span>
+        </div>
+
+        <p class="description">
+            Behind an ordinary wardrobe lies an extraordinary world.
+            Step into a land of eternal winter, ancient prophecies,
+            mythical creatures, and a destiny that will change
+            four children's lives forever.
+        </p>
+
+        <div class="buttons">
+            <button class="btn btn-primary" onclick="watchMovie()">
+                <span>▶</span> Watch Now
+            </button>
+
+            <button class="btn btn-secondary" onclick="showInfo()">
+                <span>ⓘ</span> More Info
+            </button>
+        </div>
+    </div>
+</section>
+
+<section class="details" id="details">
+    <div>
+        <p class="detail-label">Featured World</p>
+        <p class="detail-value gold-text">The Kingdom of Narnia</p>
+    </div>
+
+    <div>
+        <p class="detail-label">Genre</p>
+        <p class="detail-value">Fantasy · Adventure · Family</p>
+    </div>
+
+    <div>
+        <p class="detail-label">Journey</p>
+        <p class="detail-value">Courage · Magic · Destiny</p>
+    </div>
+
+    <div>
+        <p class="detail-label">Experience</p>
+        <p class="detail-value">Enter the extraordinary</p>
+    </div>
+</section>
+
+<div class="bottom-note">
+    “SOME JOURNEYS CHANGE EVERYTHING”
+</div>
+
+<!-- INFORMATION MODAL -->
+<div class="modal" id="infoModal" onclick="closeOutside(event)">
+    <div class="modal-box">
+        <span class="close" onclick="closeInfo()">&times;</span>
+        <h2>Enter Narnia</h2>
+        <p>
+            During World War II, four siblings discover a magical
+            world hidden inside a wardrobe. In Narnia, they encounter
+            talking animals, mythical beings, the White Witch, and
+            the mighty lion Aslan.
+        </p>
+        <br>
+        <p>
+            A legendary adventure about bravery, loyalty, sacrifice,
+            and the power of hope.
+        </p>
+        <br>
+        <p class="gold-text">The magic is waiting beyond the wardrobe.</p>
+    </div>
+</div>
+
+<script>
+// Create magical floating particles
+const particleContainer = document.getElementById("particles");
+
+for (let i = 0; i < 45; i++) {
+    const particle = document.createElement("span");
+    particle.className = "particle";
+
+    particle.style.left = Math.random() * 100 + "%";
+    particle.style.animationDuration = (7 + Math.random() * 12) + "s";
+    particle.style.animationDelay = (Math.random() * 12) + "s";
+
+    const size = (1 + Math.random() * 3) + "px";
+    particle.style.width = size;
+    particle.style.height = size;
+
+    particleContainer.appendChild(particle);
+}
+
+// More information modal
+function showInfo() {
+    document.getElementById("infoModal").classList.add("show");
+}
+
+function closeInfo() {
+    document.getElementById("infoModal").classList.remove("show");
+}
+
+function closeOutside(event) {
+    if (event.target.id === "infoModal") {
+        closeInfo();
+    }
+}
+
+// Demo watch action
+function watchMovie() {
+    alert(
+        "Welcome to Narnia! ✨\n\n" +
+        "Connect this button to an authorized streaming page " +
+        "or your movie trailer URL to start watching."
+    );
+}
+
+// Close modal using Escape key
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+        closeInfo();
+    }
+});
+</script>
+
+</body>
+</html>
+
