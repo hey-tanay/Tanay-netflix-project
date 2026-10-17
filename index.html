@@ -4,253 +4,430 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Narnia | Enter the Magic</title>
+<title>RAMAYAN | The Eternal Epic</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+:root {
+    --gold: #e8c477;
+    --cream: #fff0d2;
+    --dark: #100905;
+    --maroon: #40140b;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-:root {
-    --gold: #e8c77b;
-    --white: #ffffff;
-    --muted: #c4c6d0;
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background: #050711;
-    color: var(--white);
-    overflow-x: hidden;
+    background: var(--dark);
+    color: var(--cream);
+    font-family: "Cormorant Garamond", serif;
 }
 
-/* HERO BACKGROUND */
-.hero {
-    min-height: 100vh;
-    position: relative;
-    overflow: hidden;
-    background:
-        linear-gradient(90deg,
-            rgba(3, 5, 15, 0.98) 0%,
-            rgba(4, 8, 20, 0.83) 35%,
-            rgba(4, 8, 20, 0.28) 70%,
-            rgba(4, 8, 20, 0.15) 100%),
-        linear-gradient(0deg, #050711 0%, transparent 45%),
-        url("https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=2200&q=90")
-        center/cover no-repeat;
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
 /* NAVIGATION */
-nav {
-    height: 95px;
-    padding: 0 7%;
+
+.navbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 5;
+    padding: 24px 7%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: relative;
-    z-index: 5;
-    background: linear-gradient(to bottom, rgba(0,0,0,.55), transparent);
+    gap: 20px;
+    background: linear-gradient(#100905b8, transparent);
+    border-bottom: 1px solid #e8c47730;
 }
 
 .logo {
-    font-family: 'Cinzel', serif;
-    font-size: 27px;
+    font-family: "Cinzel", serif;
+    font-size: 22px;
     font-weight: 800;
-    letter-spacing: 5px;
+    letter-spacing: 3px;
     color: var(--gold);
-    text-shadow: 0 0 20px rgba(232,199,123,.35);
 }
 
-.nav-links {
+.navbar nav {
     display: flex;
-    align-items: center;
-    gap: 30px;
+    gap: 28px;
 }
 
-.nav-links a {
-    color: #eee;
-    font-size: 13px;
-    text-decoration: none;
-    transition: .3s;
-}
-
-.nav-links a:hover {
-    color: var(--gold);
-}
-
-.nav-right {
-    display: flex;
-    align-items: center;
-    gap: 22px;
-}
-
-.search {
-    font-size: 23px;
-    cursor: pointer;
-}
-
-.profile {
-    width: 36px;
-    height: 36px;
-    border-radius: 5px;
-    background: linear-gradient(135deg, #e9cc83, #6b4726);
-    display: grid;
-    place-items: center;
-    color: #111;
-    font-weight: 700;
-}
-
-/* HERO CONTENT */
-.hero-content {
-    position: relative;
-    z-index: 2;
-    padding: 115px 7% 100px;
-    max-width: 850px;
-    animation: reveal 1.2s ease-out;
-}
-
-.eyebrow {
-    color: var(--gold);
-    font-size: 12px;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    margin-bottom: 24px;
-}
-
-h1 {
-    font-family: 'Cinzel', serif;
-    font-size: clamp(43px, 6.5vw, 88px);
-    font-weight: 500;
-    line-height: 1.12;
+.navbar nav a {
+    font-family: "Cinzel", serif;
+    font-size: 10px;
     letter-spacing: 1px;
-    text-shadow: 0 5px 35px rgba(0,0,0,.8);
-}
-
-h1 span {
-    display: block;
-    color: var(--gold);
-}
-
-.ornament {
-    width: 220px;
-    height: 1px;
-    margin: 27px 0;
-    background: linear-gradient(90deg, var(--gold), transparent);
-}
-
-.movie-meta {
-    display: flex;
-    align-items: center;
-    gap: 13px;
-    flex-wrap: wrap;
-    color: var(--muted);
-    font-size: 13px;
-    margin-bottom: 22px;
-}
-
-.rating {
-    border: 1px solid #9da0a8;
-    padding: 2px 7px;
-    font-size: 11px;
-    color: white;
-}
-
-.tag {
-    color: var(--gold);
-}
-
-.description {
-    max-width: 530px;
-    color: #d5d8e2;
-    font-size: 14px;
-    line-height: 1.9;
-    font-weight: 300;
-}
-
-/* BUTTONS */
-.buttons {
-    display: flex;
-    gap: 15px;
-    margin-top: 32px;
-    flex-wrap: wrap;
-}
-
-.btn {
-    padding: 14px 27px;
-    border: none;
-    border-radius: 4px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 13px;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
     transition: .3s;
 }
 
-.btn-primary {
+.navbar nav a:hover {
+    color: var(--gold);
+}
+
+.nav-btn {
+    border: 1px solid var(--gold);
+    padding: 12px 18px;
+    color: var(--gold);
+    font-family: "Cinzel", serif;
+    font-size: 10px;
+    letter-spacing: 1px;
+    transition: .3s;
+}
+
+.nav-btn:hover {
     background: var(--gold);
-    color: #101018;
-    box-shadow: 0 0 25px rgba(232,199,123,.15);
+    color: var(--dark);
 }
 
-.btn-primary:hover {
-    background: #fff0bf;
-    transform: translateY(-3px);
-    box-shadow: 0 0 35px rgba(232,199,123,.35);
-}
+/* HISTORICAL HERO */
 
-.btn-secondary {
-    background: rgba(255,255,255,.12);
-    color: white;
-    border: 1px solid rgba(255,255,255,.2);
-    backdrop-filter: blur(8px);
-}
-
-.btn-secondary:hover {
-    background: rgba(255,255,255,.23);
-    transform: translateY(-3px);
-}
-
-/* MAGICAL PARTICLES */
-.particles {
-    position: absolute;
-    inset: 0;
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
     overflow: hidden;
+    background:
+        linear-gradient(90deg, #100804f5 0%, #241006b8 48%, #1b0b0350 100%),
+        linear-gradient(0deg, #100804 0%, transparent 35%),
+        url("https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=2000&q=85")
+        center/cover no-repeat;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border: 1px solid #e8c47735;
     pointer-events: none;
 }
 
-.particle {
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 780px;
+    padding: 145px 8% 125px;
+    animation: appear 1.2s ease both;
+}
+
+.eyebrow, .section-label {
+    font-family: "Cinzel", serif;
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: var(--gold);
+}
+
+.hero h1 {
+    margin: 20px 0 0;
+    font-family: "Cinzel", serif;
+    font-size: clamp(58px, 10vw, 125px);
+    line-height: 1.12;
+    font-weight: 800;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-shadow: 0 4px 35px #000;
+}
+
+.ornament {
+    margin: 20px 0;
+    color: var(--gold);
+    letter-spacing: 5px;
+}
+
+.hero h2 {
+    font-size: clamp(28px, 4vw, 45px);
+    line-height: 1.2;
+    font-weight: 500;
+}
+
+.hero-description {
+    max-width: 490px;
+    margin-top: 20px;
+    font-size: 20px;
+    line-height: 1.7;
+    color: #e1cfb4;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.primary-btn, .secondary-btn {
+    display: inline-block;
+    padding: 15px 23px;
+    font-family: "Cinzel", serif;
+    font-size: 10px;
+    letter-spacing: 1.3px;
+    transition: .3s;
+}
+
+.primary-btn {
+    color: #211006;
+    background: linear-gradient(135deg, #f7dfa4, #c28b3e);
+}
+
+.primary-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px #e8c47740;
+}
+
+.secondary-btn {
+    border: 1px solid var(--gold);
+    color: var(--gold);
+}
+
+.secondary-btn:hover {
+    background: #e8c47720;
+}
+
+.mantra {
+    margin-top: 30px;
+    color: var(--gold);
+    font-size: 25px;
+    letter-spacing: 2px;
+}
+
+.hero-bottom {
     position: absolute;
-    width: 3px;
-    height: 3px;
-    border-radius: 50%;
-    background: #ffe9a8;
-    box-shadow: 0 0 12px 3px rgba(255,220,140,.35);
-    animation: float linear infinite;
-    opacity: 0;
+    z-index: 2;
+    bottom: 25px;
+    left: 8%;
+    right: 8%;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    font-family: "Cinzel", serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #e6d1a8;
 }
 
-@keyframes float {
-    0% {
-        transform: translateY(100vh) translateX(0);
-        opacity: 0;
-    }
-    15% { opacity: .8; }
-    85% { opacity: .6; }
-    100% {
-        transform: translateY(-100px) translateX(70px);
-        opacity: 0;
-    }
+/* STORY SECTION */
+
+.story {
+    padding: 110px 20px;
+    text-align: center;
+    background:
+        radial-gradient(ellipse at top, #6d351e35, transparent 70%),
+        #100905;
 }
 
-@keyframes reveal {
+.story h2, .section-heading h2 {
+    margin-top: 18px;
+    font-family: "Cinzel", serif;
+    font-size: clamp(28px, 4vw, 45px);
+    color: var(--gold);
+}
+
+.gold-line {
+    width: 80px;
+    height: 2px;
+    margin: 25px auto;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.story-description {
+    max-width: 760px;
+    margin: auto;
+    font-size: 21px;
+    line-height: 1.8;
+    color: #d7c6ad;
+}
+
+.sanskrit {
+    margin-top: 30px;
+    font-size: 30px;
+    color: var(--gold);
+}
+
+.translation {
+    margin-top: 8px;
+    display: block;
+    font-size: 17px;
+    font-style: italic;
+    color: #b8a58c;
+}
+
+/* CHARACTERS */
+
+.characters {
+    padding: 100px 7%;
+    background: #1a0e08;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-heading > p:last-child {
+    margin-top: 12px;
+    font-size: 19px;
+    color: #c8b59b;
+}
+
+.character-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.character-card {
+    min-height: 410px;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    background-color: #30190e;
+    background-size: cover;
+    background-position: center;
+    border: 1px solid #e8c47735;
+    transition: .4s;
+}
+
+.character-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, #100804 0%, #100804c9 25%, transparent 100%);
+}
+
+.character-card:hover {
+    transform: translateY(-7px);
+    border-color: var(--gold);
+}
+
+.rama {
+    background-image:
+        url("https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?auto=format&fit=crop&w=700&q=80");
+}
+
+.sita {
+    background-image:
+        url("https://images.unsplash.com/photo-1606293926075-69a00dbfde81?auto=format&fit=crop&w=700&q=80");
+}
+
+.hanuman {
+    background-image:
+        url("https://images.unsplash.com/photo-1604608672516-8c7e9b9b2a18?auto=format&fit=crop&w=700&q=80");
+}
+
+.ravana {
+    background-image:
+        url("https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=700&q=80");
+}
+
+.card-content {
+    position: relative;
+    z-index: 1;
+    padding: 24px;
+}
+
+.card-number {
+    color: var(--gold);
+    font-family: "Cinzel", serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.card-content h3 {
+    margin: 12px 0;
+    font-family: "Cinzel", serif;
+    font-size: 23px;
+    color: var(--gold);
+}
+
+.card-content p {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #e4d4bf;
+}
+
+/* EPIC QUOTE */
+
+.legacy {
+    min-height: 500px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px;
+    text-align: center;
+    background:
+        linear-gradient(#120903d9, #120903d9),
+        url("https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=2000&q=85")
+        center/cover no-repeat;
+}
+
+.legacy-content {
+    position: relative;
+    max-width: 800px;
+}
+
+.legacy h2 {
+    margin-top: 25px;
+    font-family: "Cinzel", serif;
+    font-size: clamp(28px, 4vw, 47px);
+    line-height: 1.5;
+    color: var(--gold);
+}
+
+.legacy p:not(.section-label) {
+    font-size: 21px;
+    line-height: 1.7;
+    color: #e0cfb5;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 45px 20px;
+    text-align: center;
+    background: #090604;
+    border-top: 1px solid #e8c47730;
+}
+
+.footer-logo {
+    font-family: "Cinzel", serif;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: var(--gold);
+}
+
+footer p {
+    margin-top: 12px;
+    font-size: 18px;
+    color: #c8b59c;
+}
+
+footer .copyright {
+    margin-top: 20px;
+    font-family: "Cinzel", serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #8e7860;
+}
+
+/* ANIMATION */
+
+@keyframes appear {
     from {
         opacity: 0;
         transform: translateY(25px);
@@ -261,153 +438,92 @@ h1 span {
     }
 }
 
-/* MOVIE DETAILS STRIP */
-.details {
-    padding: 28px 7% 35px;
-    background: #050711;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 25px;
-    flex-wrap: wrap;
-}
-
-.detail-label {
-    color: #8c91a4;
-    text-transform: uppercase;
-    font-size: 10px;
-    letter-spacing: 2px;
-    margin-bottom: 8px;
-}
-
-.detail-value {
-    color: #e9eaf0;
-    font-size: 13px;
-}
-
-.gold-text {
-    color: var(--gold);
-}
-
-.bottom-note {
-    font-family: 'Cinzel', serif;
-    font-size: 12px;
-    color: var(--gold);
-    letter-spacing: 3px;
-    text-align: center;
-    padding: 30px 15px 45px;
-    background: #050711;
-}
-
-/* MODAL */
-.modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 20;
-    background: rgba(0,0,0,.85);
-    backdrop-filter: blur(10px);
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-.modal.show {
-    display: flex;
-}
-
-.modal-box {
-    position: relative;
-    max-width: 520px;
-    width: 100%;
-    padding: 40px;
-    border: 1px solid rgba(232,199,123,.45);
-    border-radius: 8px;
-    background: linear-gradient(145deg, #151b2c, #080a13);
-    box-shadow: 0 0 80px rgba(232,199,123,.1);
-    animation: reveal .35s ease-out;
-}
-
-.modal-box h2 {
-    font-family: 'Cinzel', serif;
-    color: var(--gold);
-    font-size: 27px;
-    margin-bottom: 18px;
-}
-
-.modal-box p {
-    color: #c8ccda;
-    font-size: 14px;
-    line-height: 1.9;
-}
-
-.close {
-    position: absolute;
-    right: 18px;
-    top: 12px;
-    font-size: 27px;
-    cursor: pointer;
-    color: white;
-}
-
 /* RESPONSIVE */
-@media (max-width: 700px) {
-    nav {
-        height: 75px;
-        padding: 0 5%;
+
+@media (max-width: 950px) {
+    .navbar {
+        padding: 20px 5%;
+    }
+
+    .navbar nav {
+        gap: 14px;
+    }
+
+    .character-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 650px) {
+    .navbar {
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 18px 12px;
     }
 
     .logo {
-        font-size: 22px;
-        letter-spacing: 3px;
+        width: 100%;
+        text-align: center;
     }
 
-    .nav-links {
+    .navbar nav {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px 18px;
+    }
+
+    .navbar nav a {
+        font-size: 9px;
+    }
+
+    .nav-btn {
         display: none;
     }
 
-    .hero {
-        min-height: 100vh;
-        background-position: 60% center;
-    }
-
     .hero-content {
-        padding: 135px 6% 85px;
+        padding: 180px 7% 120px;
     }
 
-    h1 {
-        font-size: clamp(40px, 10vw, 65px);
+    .hero h1 {
+        letter-spacing: 1px;
     }
 
-    .description {
-        font-size: 13px;
+    .hero-description {
+        font-size: 18px;
     }
 
-    .buttons {
-        gap: 10px;
+    .hero-bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        font-size: 8px;
     }
 
-    .btn {
-        padding: 12px 16px;
-        font-size: 12px;
+    .character-grid {
+        grid-template-columns: 1fr;
     }
 
-    .details {
-        padding: 30px 6%;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+    .character-card {
+        min-height: 430px;
     }
 
-    .modal-box {
-        padding: 30px 23px;
+    .story {
+        padding: 80px 22px;
+    }
+
+    .characters {
+        padding: 80px 6%;
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
     *, *::before, *::after {
         animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
     }
 }
 </style>
@@ -415,164 +531,152 @@ h1 span {
 
 <body>
 
-<section class="hero">
-
-    <div class="particles" id="particles"></div>
+<header class="navbar">
+    <a href="#home" class="logo">ॐ RAMAYAN</a>
 
     <nav>
-        <div class="logo">NARNIA</div>
-
-        <div class="nav-links">
-            <a href="#">Home</a>
-            <a href="#details">Fantasy</a>
-            <a href="#details">Movies</a>
-            <a href="#details">My List</a>
-        </div>
-
-        <div class="nav-right">
-            <span class="search" title="Search">⌕</span>
-            <div class="profile">N</div>
-        </div>
+        <a href="#home">Home</a>
+        <a href="#story">The Story</a>
+        <a href="#characters">Characters</a>
+        <a href="#legacy">The Legacy</a>
     </nav>
 
+    <a href="#story" class="nav-btn">Explore Epic</a>
+</header>
+
+<main>
+
+<section class="hero" id="home">
     <div class="hero-content">
-        <p class="eyebrow">✦ A World Beyond Your Imagination ✦</p>
+        <p class="eyebrow">AN ETERNAL TALE OF DHARMA</p>
 
-        <h1>
-            THE CHRONICLES
-            <span>OF NARNIA</span>
-        </h1>
+        <h1>RAMAYAN</h1>
 
-        <div class="ornament"></div>
+        <div class="ornament">✦ ━━━━━ ✦ ━━━━━ ✦</div>
 
-        <div class="movie-meta">
-            <span class="tag">FANTASY CLASSIC</span>
-            <span>•</span>
-            <span>2005</span>
-            <span>•</span>
-            <span class="rating">PG</span>
-            <span>•</span>
-            <span>2h 23m</span>
-            <span>•</span>
-            <span>Adventure</span>
-        </div>
+        <h2>The Journey of Goodness,<br>Courage & Destiny</h2>
 
-        <p class="description">
-            Behind an ordinary wardrobe lies an extraordinary world.
-            Step into a land of eternal winter, ancient prophecies,
-            mythical creatures, and a destiny that will change
-            four children's lives forever.
+        <p class="hero-description">
+            Enter an ancient world of divine heroes, legendary
+            kingdoms, sacred vows and the eternal triumph of
+            righteousness over evil.
         </p>
 
         <div class="buttons">
-            <button class="btn btn-primary" onclick="watchMovie()">
-                <span>▶</span> Watch Now
-            </button>
-
-            <button class="btn btn-secondary" onclick="showInfo()">
-                <span>ⓘ</span> More Info
-            </button>
+            <a href="#story" class="primary-btn">DISCOVER THE STORY</a>
+            <a href="#characters" class="secondary-btn">MEET THE LEGENDS</a>
         </div>
+
+        <p class="mantra">॥ जय श्री राम ॥</p>
+    </div>
+
+    <div class="hero-bottom">
+        <span>AN ANCIENT INDIAN EPIC</span>
+        <span>DHARMA • COURAGE • DEVOTION</span>
     </div>
 </section>
 
-<section class="details" id="details">
-    <div>
-        <p class="detail-label">Featured World</p>
-        <p class="detail-value gold-text">The Kingdom of Narnia</p>
+<section class="story" id="story">
+    <p class="section-label">THE LEGEND BEGINS</p>
+    <h2>A Story Beyond Time</h2>
+    <div class="gold-line"></div>
+
+    <p class="story-description">
+        From the magnificent kingdom of Ayodhya to the forests
+        of exile, from unwavering devotion to the legendary
+        battle of Lanka, the Ramayan tells a timeless story of
+        duty, sacrifice, loyalty and righteousness.
+    </p>
+
+    <p class="sanskrit">धर्मो रक्षति रक्षितः</p>
+    <span class="translation">
+        Dharma protects those who protect it.
+    </span>
+</section>
+
+<section class="characters" id="characters">
+    <div class="section-heading">
+        <p class="section-label">THE WORLD OF RAMAYAN</p>
+        <h2>Legends of an Ancient Era</h2>
+        <p>Four legendary figures. One timeless epic.</p>
     </div>
 
-    <div>
-        <p class="detail-label">Genre</p>
-        <p class="detail-value">Fantasy · Adventure · Family</p>
-    </div>
+    <div class="character-grid">
 
-    <div>
-        <p class="detail-label">Journey</p>
-        <p class="detail-value">Courage · Magic · Destiny</p>
-    </div>
+        <article class="character-card rama">
+            <div class="card-content">
+                <span class="card-number">01 / THE PRINCE</span>
+                <h3>Lord Rama</h3>
+                <p>
+                    The embodiment of righteousness, courage,
+                    compassion and unwavering duty.
+                </p>
+            </div>
+        </article>
 
-    <div>
-        <p class="detail-label">Experience</p>
-        <p class="detail-value">Enter the extraordinary</p>
+        <article class="character-card sita">
+            <div class="card-content">
+                <span class="card-number">02 / THE QUEEN</span>
+                <h3>Goddess Sita</h3>
+                <p>
+                    A symbol of grace, inner strength,
+                    devotion and extraordinary resilience.
+                </p>
+            </div>
+        </article>
+
+        <article class="character-card hanuman">
+            <div class="card-content">
+                <span class="card-number">03 / THE DEVOTEE</span>
+                <h3>Lord Hanuman</h3>
+                <p>
+                    The symbol of fearless service, divine
+                    strength and unwavering devotion.
+                </p>
+            </div>
+        </article>
+
+        <article class="character-card ravana">
+            <div class="card-content">
+                <span class="card-number">04 / THE KING</span>
+                <h3>Ravana</h3>
+                <p>
+                    The mighty ruler of Lanka whose choices
+                    lead to an epic confrontation.
+                </p>
+            </div>
+        </article>
+
     </div>
 </section>
 
-<div class="bottom-note">
-    “SOME JOURNEYS CHANGE EVERYTHING”
-</div>
+<section class="legacy" id="legacy">
+    <div class="legacy-content">
+        <p class="section-label">THE ETERNAL MESSAGE</p>
 
-<!-- INFORMATION MODAL -->
-<div class="modal" id="infoModal" onclick="closeOutside(event)">
-    <div class="modal-box">
-        <span class="close" onclick="closeInfo()">&times;</span>
-        <h2>Enter Narnia</h2>
+        <h2>
+            When darkness rises,<br>
+            righteousness shall prevail.
+        </h2>
+
+        <div class="gold-line"></div>
+
         <p>
-            During World War II, four siblings discover a magical
-            world hidden inside a wardrobe. In Narnia, they encounter
-            talking animals, mythical beings, the White Witch, and
-            the mighty lion Aslan.
+            A legacy carried through generations.<br>
+            A tale that continues to inspire millions.
         </p>
-        <br>
-        <p>
-            A legendary adventure about bravery, loyalty, sacrifice,
-            and the power of hope.
-        </p>
-        <br>
-        <p class="gold-text">The magic is waiting beyond the wardrobe.</p>
+
+        <p class="mantra">॥ श्री राम जय राम जय जय राम ॥</p>
     </div>
-</div>
+</section>
 
-<script>
-// Create magical floating particles
-const particleContainer = document.getElementById("particles");
+</main>
 
-for (let i = 0; i < 45; i++) {
-    const particle = document.createElement("span");
-    particle.className = "particle";
-
-    particle.style.left = Math.random() * 100 + "%";
-    particle.style.animationDuration = (7 + Math.random() * 12) + "s";
-    particle.style.animationDelay = (Math.random() * 12) + "s";
-
-    const size = (1 + Math.random() * 3) + "px";
-    particle.style.width = size;
-    particle.style.height = size;
-
-    particleContainer.appendChild(particle);
-}
-
-// More information modal
-function showInfo() {
-    document.getElementById("infoModal").classList.add("show");
-}
-
-function closeInfo() {
-    document.getElementById("infoModal").classList.remove("show");
-}
-
-function closeOutside(event) {
-    if (event.target.id === "infoModal") {
-        closeInfo();
-    }
-}
-
-// Demo watch action
-function watchMovie() {
-    alert(
-        "Welcome to Narnia! ✨\n\n" +
-        "Connect this button to an authorized streaming page " +
-        "or your movie trailer URL to start watching."
-    );
-}
-
-// Close modal using Escape key
-document.addEventListener("keydown", function(event) {
-    if (event.key === "Escape") {
-        closeInfo();
-    }
-});
-</script>
+<footer>
+    <a href="#home" class="footer-logo">ॐ RAMAYAN</a>
+    <p>An ancient epic. An eternal legacy.</p>
+    <p class="copyright">HISTORICAL-INSPIRED FAN CONCEPT • 2026</p>
+</footer>
 
 </body>
 </html>
